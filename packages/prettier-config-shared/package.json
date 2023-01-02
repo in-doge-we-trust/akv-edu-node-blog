@@ -1,0 +1,10 @@
+{
+  "name": "prettier-config-shared",
+  "packageManager": "yarn@3.3.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "prettier": "^2.8.1"
+  }
+}
