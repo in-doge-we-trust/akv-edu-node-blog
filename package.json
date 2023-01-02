@@ -3,6 +3,10 @@
   "description": "Simple full-stack personal blog app created for educational purposes",
   "version": "0.0.1",
   "license": "MIT",
+  "author": {
+    "name": "Bulat Murtazin",
+    "email": "bulatf.murtazin@gmail.com"
+  },
   "packageManager": "yarn@3.3.0",
   "engines": {
     "node": ">= 18"
