@@ -13,7 +13,11 @@ const isBuildFolderExist = fs.existsSync(distDir);
 
 if (isBuildFolderExist) {
   console.log(chalk.yellow('Found existing build folder!'));
+
+  console.log('');
   console.log('------------------------------------');
+  console.log('');
+
   console.log(chalk.blue('Cleaning the build folder...'));
 
   fs.rmSync(distDir, { recursive: true });
@@ -22,7 +26,10 @@ if (isBuildFolderExist) {
 }
 
 console.log(chalk.blue('Build folder was not found.'));
+
+console.log('');
 console.log('------------------------------------');
+console.log('');
 
 console.log(chalk.blue('Starting the build...'));
 
@@ -40,6 +47,34 @@ esbuild
     logLevel: 'info',
   })
   .then(() => {
+    console.log('');
     console.log('------------------------------------');
+    console.log('');
+
     console.log(chalk.green('Build succeeded!'));
+  })
+  .then(() => {
+    console.log('');
+    console.log('------------------------------------');
+    console.log('');
+
+    console.log(chalk.blue('Copying .env file...'));
+
+    try {
+      fs.copyFileSync(
+        path.join(__dirname, '..', '.env'),
+        path.join(__dirname, '..', 'dist', '.env'),
+        fs.constants.COPYFILE_FICLONE,
+      );
+    } catch (err) {
+      console.log(chalk.red('An error occurred while copying .env file!'));
+      console.error(err);
+
+      process.exit(1);
+    }
+
+    console.log('');
+    console.log(
+      chalk.green('Copied .env file to build directory successfully!'),
+    );
   });
