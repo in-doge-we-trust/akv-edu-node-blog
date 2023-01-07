@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+import chalk from 'chalk';
+import esbuild from 'esbuild';
 
-const chalk = require('chalk');
-const esbuild = require('esbuild');
-
-const cleanBuildFolder = require('./cleanBuildFolder');
-const copyEnvToBuildFolder = require('./copyEnvToBuildFolder');
+import cleanBuildFolder from './cleanBuildFolder.js';
+import copyEnvToBuildFolder from './copyEnvToBuildFolder.js';
 
 const build = async () => {
   cleanBuildFolder();
@@ -13,7 +11,7 @@ const build = async () => {
   console.log('------------------------------------');
   console.log('');
 
-  console.log(chalk.blue('Starting the build...'));
+  console.log(chalk.cyan('Starting the build...'));
   console.log('');
 
   try {

@@ -1,15 +1,16 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+import path from 'path';
+import url from 'url';
+import fs from 'fs';
 
-const path = require('path');
-const fs = require('fs');
+import chalk from 'chalk';
 
-const chalk = require('chalk');
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 function cleanBuildFolder() {
   const distDir = path.join(__dirname, '..', 'dist');
 
   console.log(
-    chalk.blue(`Checking whether build folder (${distDir}) exists or not...`),
+    chalk.cyan(`Checking whether build folder (${distDir}) exists or not...`),
   );
   console.log('');
 
@@ -19,15 +20,15 @@ function cleanBuildFolder() {
     console.log(chalk.yellow('Found an existing build folder!'));
 
     console.log('');
-    console.log(chalk.blue('Cleaning the build folder...'));
+    console.log(chalk.cyan('Cleaning the build folder...'));
     console.log('');
 
     fs.rmSync(distDir, { recursive: true });
 
     console.log(chalk.green('Cleaned build folder successfully!'));
   } else {
-    console.log(chalk.blue('Build folder was not found.'));
+    console.log(chalk.cyan('Build folder was not found.'));
   }
 }
 
-module.exports = cleanBuildFolder;
+export default cleanBuildFolder;

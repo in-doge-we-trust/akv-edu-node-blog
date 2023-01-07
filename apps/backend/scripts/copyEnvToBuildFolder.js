@@ -1,12 +1,25 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+import path from 'path';
+import url from 'url';
+import fs from 'fs';
 
-const path = require('path');
-const fs = require('fs');
+import chalk from 'chalk';
 
-const chalk = require('chalk');
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 function copyEnvToBuildFolder() {
-  console.log(chalk.blue('Copying .env file...'));
+  console.log(chalk.cyan('Checking whether .env file exists or not...'));
+  console.log('');
+
+  if (fs.existsSync(path.join(__dirname, '..', '.env'))) {
+    console.log(chalk.green('Found existing .env file!'));
+  } else {
+    console.log(chalk.red('Error: Could not find .env file!'));
+    console.log('');
+    process.exit(1);
+  }
+
+  console.log('');
+  console.log(chalk.cyan('Copying .env file...'));
 
   try {
     fs.copyFileSync(
@@ -24,4 +37,4 @@ function copyEnvToBuildFolder() {
   console.log(chalk.green('Copied .env file to build directory successfully!'));
 }
 
-module.exports = copyEnvToBuildFolder;
+export default copyEnvToBuildFolder;
