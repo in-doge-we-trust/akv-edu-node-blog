@@ -7,7 +7,7 @@
     "name": "Bulat Murtazin",
     "email": "bulatf.murtazin@gmail.com"
   },
-  "packageManager": "yarn@3.3.0",
+  "packageManager": "yarn@3.3.1",
   "engines": {
     "node": ">= 18"
   },
