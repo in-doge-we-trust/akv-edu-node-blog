@@ -1,8 +1,14 @@
-import chalk from 'chalk';
-import esbuild from 'esbuild';
+const chalk = require('chalk');
+const esbuild = require('esbuild');
 
-import cleanBuildFolder from './cleanBuildFolder.js';
-import copyEnvToBuildFolder from './copyEnvToBuildFolder.js';
+const {
+  appEntryFilePath,
+  buildFolderPath,
+  tsConfigBuildPath,
+} = require('./paths');
+
+const cleanBuildFolder = require('./cleanBuildFolder');
+const copyEnvToBuildFolder = require('./copyEnvToBuildFolder');
 
 const build = async () => {
   cleanBuildFolder();
@@ -16,14 +22,15 @@ const build = async () => {
 
   try {
     await esbuild.build({
-      entryPoints: ['src/app.ts'],
+      entryPoints: [appEntryFilePath],
       bundle: true,
       minify: true,
       sourcemap: false,
       platform: 'node',
       target: 'node18',
-      outdir: './dist',
+      outdir: buildFolderPath,
       logLevel: 'info',
+      tsconfig: tsConfigBuildPath,
     });
   } catch (err) {
     console.log(chalk.red('An error occurred while building the app!'));

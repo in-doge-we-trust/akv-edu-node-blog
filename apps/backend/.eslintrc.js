@@ -21,4 +21,14 @@ module.exports = {
     'prettier/prettier': 'error',
   },
   ignorePatterns: ['dist/**'],
+
+  overrides: [
+    {
+      // Disable `require`-style imports error since it's pure CommonJS Node code
+      files: ['scripts/*.js', 'config/*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
 };
