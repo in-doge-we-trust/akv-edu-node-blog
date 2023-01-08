@@ -2,4 +2,4 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const PORT = Number(process.env['PORT']) ?? 8080;
+export const PORT = process.env['PORT'] ? Number(process.env['PORT']) : 8080;
