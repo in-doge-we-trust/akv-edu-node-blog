@@ -1306,6 +1306,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.47.1
     "@typescript-eslint/parser": ^5.47.1
     chalk: 4.1.2
+    core-lib: "workspace:^"
     dotenv: ^16.0.3
     esbuild: ^0.16.13
     eslint: ^8.31.0
@@ -1695,6 +1696,22 @@ __metadata:
   checksum: 1f4bd2ca5765f8c9689a7e8954183f5332139eb72b6ff783d8947032ec1fdf43109852c178e21a953a30c0dd42257828185be01b49d1eb1a67fd054ca588a180
   languageName: node
   linkType: hard
+
+"core-lib@workspace:^, core-lib@workspace:packages/core-lib":
+  version: 0.0.0-use.local
+  resolution: "core-lib@workspace:packages/core-lib"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": ^5.47.1
+    "@typescript-eslint/parser": ^5.47.1
+    eslint: ^8.31.0
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-prettier: ^4.2.1
+    prettier: ^2.8.1
+    prettier-config-shared: "workspace:^"
+    rimraf: ^3.0.2
+    typescript: ^4.9.4
+  languageName: unknown
+  linkType: soft
 
 "core-util-is@npm:~1.0.0":
   version: 1.0.3
@@ -2826,6 +2843,7 @@ __metadata:
     "@vitejs/plugin-vue": ^4.0.0
     "@vue/tsconfig": ^0.1.3
     autoprefixer: ^10.4.13
+    core-lib: "workspace:^"
     eslint: ^8.31.0
     eslint-config: ^0.3.0
     eslint-plugin-prettier: ^4.2.1

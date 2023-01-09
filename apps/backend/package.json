@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
+    "core-lib": "workspace:^",
     "dotenv": "^16.0.3",
     "fastify": "^4.11.0",
     "pg": "^8.8.0",
