@@ -1,3 +1,6 @@
+/**
+ * @type {import('eslint').Linter.Config}
+ */
 module.exports = {
   env: {
     browser: true,
@@ -21,4 +24,5 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
   },
+  ignorePatterns: ['dist'],
 };
