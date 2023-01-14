@@ -29,9 +29,13 @@
     "noUnusedParameters": true,
     "importsNotUsedAsValues": "error",
 
+    "target": "ES2020",
+    "module": "CommonJS",
+    
+    "outDir": "dist",
+
     "declaration": true,
-    "sourceMap": true,
-    "declarationMap": false
+    "declarationMap": true
   },
-  "exclude": ["dist"]
+  "include": ["src/*"]
 }
