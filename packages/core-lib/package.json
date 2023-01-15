@@ -1,5 +1,5 @@
 {
-  "name": "core-lib",
+  "name": "@akv-edu-node-blog/core-lib",
   "description": "A set of core things shared between frontend and backend apps",
   "version": "0.0.1",
   "author": {
@@ -10,23 +10,44 @@
   "engines": {
     "node": ">= 18"
   },
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./schemas": {
+      "default": "./dist/schemas/index.js"
+    },
+    "./types": {
+      "default": "./dist/types/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/index.d.ts"
+      ],
+      "schemas": [
+        "dist/schemas/index.d.ts"
+      ],
+      "types": [
+        "dist/types/index.d.ts"
+      ]
+    }
+  },
+  "main": "dist/index.js",
   "scripts": {
     "dev": "tsc --watch",
     "build": "rimraf dist && tsc"
   },
   "devDependencies": {
+    "@akv-edu-node-blog/prettier-config-shared": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.1",
-    "prettier-config-shared": "workspace:^",
     "rimraf": "^3.0.2",
     "typescript": "^4.9.4"
   },
