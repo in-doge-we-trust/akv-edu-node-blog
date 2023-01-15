@@ -6,7 +6,7 @@ import {
   Model,
 } from 'sequelize';
 
-import type { UserModelType } from 'core-lib';
+import type { UserModelType } from '@akv-edu-node-blog/core-lib/types';
 
 import type { InitDBModelFnType, RemoveTimestamps } from '../sequelize/types';
 

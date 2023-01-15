@@ -5,7 +5,7 @@ import {
   Model,
 } from 'sequelize';
 
-import type { PostModelType } from 'core-lib';
+import type { PostModelType } from '@akv-edu-node-blog/core-lib';
 
 import type { InitDBModelFnType, RemoveTimestamps } from '../sequelize/types';
 
