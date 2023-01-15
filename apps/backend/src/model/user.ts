@@ -10,11 +10,11 @@ import type { UserModelType } from '@akv-edu-node-blog/core-lib/types';
 
 import type { InitDBModelFnType, RemoveTimestamps } from '../sequelize/types';
 
-type UserModelInterface = RemoveTimestamps<UserModelType>;
+type IUserModel = RemoveTimestamps<UserModelType>;
 
 export class UserModel
   extends Model<InferAttributes<UserModel>, InferCreationAttributes<UserModel>>
-  implements UserModelInterface
+  implements IUserModel
 {
   declare id: CreationOptional<string>;
   declare fullName: string;

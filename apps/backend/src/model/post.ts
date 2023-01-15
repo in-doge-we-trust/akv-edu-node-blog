@@ -9,11 +9,11 @@ import type { PostModelType } from '@akv-edu-node-blog/core-lib';
 
 import type { InitDBModelFnType, RemoveTimestamps } from '../sequelize/types';
 
-type PostModelInterface = RemoveTimestamps<PostModelType>;
+type IPostModel = RemoveTimestamps<PostModelType>;
 
 export class PostModel
   extends Model<InferAttributes<PostModel>, InferCreationAttributes<PostModel>>
-  implements PostModelInterface
+  implements IPostModel
 {
   declare id: string;
   declare title: string;
