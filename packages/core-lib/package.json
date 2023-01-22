@@ -20,6 +20,9 @@
     },
     "./types": {
       "default": "./dist/types/index.js"
+    },
+    "./enums": {
+      "default": "./dist/enums/index.js"
     }
   },
   "typesVersions": {
@@ -32,6 +35,9 @@
       ],
       "types": [
         "dist/types/index.d.ts"
+      ],
+      "enums": [
+        "dist/enums/index.d.ts"
       ]
     }
   },
