@@ -15,6 +15,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@akv-edu-node-blog/core-lib": "workspace:^",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
