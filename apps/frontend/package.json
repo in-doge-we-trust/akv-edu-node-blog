@@ -17,7 +17,8 @@
   "dependencies": {
     "@akv-edu-node-blog/core-lib": "workspace:^",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@akv-edu-node-blog/prettier-config-shared": "workspace:^",

@@ -13,7 +13,8 @@
     "@akv-edu-node-blog/core-lib": "workspace:^",
     "chalk": "4.1.2",
     "dotenv": "^16.0.3",
-    "fastify": "^4.11.0"
+    "fastify": "^4.11.0",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@akv-edu-node-blog/prettier-config-shared": "workspace:^",
