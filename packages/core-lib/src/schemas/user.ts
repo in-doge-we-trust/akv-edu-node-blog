@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 import { IdSchema } from './id';
 import { UserRoleSchema } from './user-role';
+import { AuthTokenSchema } from './auth-token';
 import {
   PasswordWithConfirmationSchemaMixin,
   refinePasswordConfirmMatch,
@@ -12,9 +13,11 @@ export const UserSchemaShape = z.object({
   role: UserRoleSchema,
   fullName: z.string(),
   email: z.string().email(),
+  posts: z.array(IdSchema),
+
   // TODO: Add format validation
   password: z.string(),
-  posts: z.array(IdSchema),
+  authToken: AuthTokenSchema,
 });
 export const UserSchema = UserSchemaShape;
 
