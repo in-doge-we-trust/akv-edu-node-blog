@@ -14,10 +14,11 @@ export const UserSchemaShape = z.object({
   email: z.string().email(),
   // TODO: Add format validation
   password: z.string(),
+  posts: z.array(IdSchema),
 });
 export const UserSchema = UserSchemaShape;
 
-export const UserCreateSchemaShape = UserSchema.pick({
+export const UserCreateSchemaShape = UserSchemaShape.pick({
   fullName: true,
   email: true,
 }).merge(PasswordWithConfirmationSchemaMixin);
@@ -25,7 +26,7 @@ export const UserCreateSchema = UserCreateSchemaShape.superRefine(
   refinePasswordConfirmMatch,
 );
 
-export const UserUpdateSchemaShape = UserSchema.pick({
+export const UserUpdateSchemaShape = UserSchemaShape.pick({
   fullName: true,
   email: true,
 });

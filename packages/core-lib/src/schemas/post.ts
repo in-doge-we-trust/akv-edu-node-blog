@@ -8,4 +8,18 @@ export const PostSchemaShape = z.object({
   content: z.string(),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
+  author: IdSchema,
 });
+export const PostSchema = PostSchemaShape;
+
+export const PostCreateSchemaShape = PostSchemaShape.pick({
+  title: true,
+  content: true,
+});
+export const PostCreateSchema = PostCreateSchemaShape;
+
+export const PostUpdateSchemaShape = PostSchemaShape.pick({
+  title: true,
+  content: true,
+});
+export const PostUpdateSchema = PostUpdateSchemaShape;
