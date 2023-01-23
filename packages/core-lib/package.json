@@ -10,22 +10,11 @@
   "engines": {
     "node": ">= 18"
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsc --watch",
     "build": "rimraf && tsc"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "dist/index.d.ts"
-      ]
-    }
   },
   "devDependencies": {
     "@akv-edu-node-blog/prettier-config-shared": "workspace:^",
