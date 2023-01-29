@@ -24,8 +24,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importsNotUsedAsValues": "error",
-    "checkJs": true,
     "resolveJsonModule": true,
+
+    "allowJs": true,
+    "checkJs": true,
 
     // Required to supress tsc errors
     "outDir": "dist"
