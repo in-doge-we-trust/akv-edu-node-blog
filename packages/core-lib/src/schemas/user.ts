@@ -1,32 +1,34 @@
 import { z } from 'zod';
 
-import { IdSchema } from './id';
-import { UserRoleSchema } from './user-role';
-import { AuthTokenSchema } from './auth-token';
+import { IdSchema, WithIdSchemaMixin } from './id';
 import {
-  PasswordWithConfirmationSchemaMixin,
-  refinePasswordConfirmMatch,
-} from './password';
+  refineUserPasswordAndConfirmationMatch,
+  WithUserPasswordWithConfirmationSchemaMixin,
+} from './user-password';
 
-export const UserSchemaShape = z.object({
-  id: IdSchema,
-  role: UserRoleSchema,
-  fullName: z.string(),
-  email: z.string().email(),
-  posts: z.array(IdSchema),
+/**
+ * Basic `User` entity schema.
+ *
+ * Not intended for direct usage.
+ */
+export const UserSchemaShape = z
+  .object({
+    fullName: z.string(),
+    email: z.string().email(),
+    posts: z.array(IdSchema),
 
-  // TODO: Add format validation
-  password: z.string(),
-  authToken: AuthTokenSchema,
-});
+    role: IdSchema,
+    authInfo: IdSchema,
+  })
+  .merge(WithIdSchemaMixin);
 export const UserSchema = UserSchemaShape;
 
 export const UserCreateSchemaShape = UserSchemaShape.pick({
   fullName: true,
   email: true,
-}).merge(PasswordWithConfirmationSchemaMixin);
+}).merge(WithUserPasswordWithConfirmationSchemaMixin);
 export const UserCreateSchema = UserCreateSchemaShape.superRefine(
-  refinePasswordConfirmMatch,
+  refineUserPasswordAndConfirmationMatch,
 );
 
 export const UserUpdateSchemaShape = UserSchemaShape.pick({
@@ -36,6 +38,8 @@ export const UserUpdateSchemaShape = UserSchemaShape.pick({
 export const UserUpdateSchema = UserUpdateSchemaShape;
 
 export const UserUpdatePasswordSchemaShape =
-  PasswordWithConfirmationSchemaMixin;
+  WithUserPasswordWithConfirmationSchemaMixin;
 export const UserUpdatePasswordSchema =
-  UserUpdatePasswordSchemaShape.superRefine(refinePasswordConfirmMatch);
+  UserUpdatePasswordSchemaShape.superRefine(
+    refineUserPasswordAndConfirmationMatch,
+  );

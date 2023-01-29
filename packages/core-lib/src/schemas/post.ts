@@ -1,15 +1,21 @@
 import { z } from 'zod';
+import { WithEntityMetadataSchemaMixin } from './entity-metadata';
 
-import { IdSchema } from './id';
+import { IdSchema, WithIdSchemaMixin } from './id';
 
-export const PostSchemaShape = z.object({
-  id: IdSchema,
-  title: z.string(),
-  content: z.string(),
-  createdAt: z.string().datetime(),
-  updatedAt: z.string().datetime(),
-  author: IdSchema,
-});
+/**
+ * Basic `Post` entity schema.
+ *
+ * Not intended for direct usage.
+ */
+export const PostSchemaShape = z
+  .object({
+    title: z.string(),
+    content: z.string(),
+    author: IdSchema,
+  })
+  .merge(WithIdSchemaMixin)
+  .merge(WithEntityMetadataSchemaMixin);
 export const PostSchema = PostSchemaShape;
 
 export const PostCreateSchemaShape = PostSchemaShape.pick({
