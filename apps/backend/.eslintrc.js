@@ -25,7 +25,7 @@ module.exports = {
   overrides: [
     {
       // Disable `require`-style imports error since it's pure CommonJS Node code
-      files: ['scripts/*.js', 'config/*.js'],
+      files: ['scripts/*.js'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
       },

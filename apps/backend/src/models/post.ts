@@ -7,8 +7,9 @@ import {
 
 import type { PostModelType } from '@akv-edu-node-blog/core-lib';
 
+import { sequelize } from '../../config/sequelize';
+
 import { UserModel } from './user';
-import { sequelize } from './index';
 
 type PostModelInterface = Omit<PostModelType, 'createdAt' | 'updatedAt'>;
 

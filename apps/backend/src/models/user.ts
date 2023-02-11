@@ -3,12 +3,12 @@ import {
   InferAttributes,
   InferCreationAttributes,
   Model,
-  Sequelize,
 } from 'sequelize';
 
 import type { UserModelType } from '@akv-edu-node-blog/core-lib';
 
-import { sequelize } from './index';
+import { sequelize } from '../../config/sequelize';
+
 import { PostModel } from './post';
 
 export class UserModel
