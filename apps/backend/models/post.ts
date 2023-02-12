@@ -7,8 +7,9 @@ import {
 
 import type { PostModelType } from '@akv-edu-node-blog/core-lib';
 
-import { sequelize } from '../../config/sequelize';
+import { sequelize } from '../config/sequelize';
 
+import { idColumn } from './shared/id-column';
 import { UserModel } from './user';
 
 type PostModelInterface = Omit<PostModelType, 'createdAt' | 'updatedAt'>;
@@ -25,13 +26,7 @@ export class PostModel
 
 PostModel.init(
   {
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
-      allowNull: false,
-      unique: true,
-    },
+    id: idColumn,
     title: {
       type: DataTypes.TEXT,
       allowNull: false,

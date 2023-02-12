@@ -1,8 +1,13 @@
 import { z } from 'zod';
 
-export const UserAuthTokenSchemaShape = z.object({
-  refreshToken: z.string(),
-  validUntil: z.string().datetime(),
-});
+import { IdSchema, WithIdSchemaMixin } from './id';
 
-export const AuthTokenSchema = UserAuthTokenSchemaShape;
+export const UserAuthTokenSchemaShape = z
+  .object({
+    userAuthInfo: IdSchema,
+    refreshToken: z.string(),
+    validUntil: z.string().datetime(),
+  })
+  .merge(WithIdSchemaMixin);
+
+export const UserAuthTokenSchema = UserAuthTokenSchemaShape;

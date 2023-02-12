@@ -2,21 +2,15 @@ import Fastify from 'fastify';
 import chalk from 'chalk';
 
 import { PORT } from '../config/env';
-import { sequelize } from '../config/sequelize';
 
-const run = async () => {
+import { initDB } from './pre-start/database';
+
+async function run() {
+  await initDB();
+
   const app = Fastify({
     logger: true,
   });
-
-  try {
-    await sequelize.authenticate();
-  } catch (e) {
-    console.log(
-      chalk.yellow(`An error occurred while testing the DB connection!`),
-    );
-    console.log(chalk.red(e));
-  }
 
   app.get('/', (_req, reply) => {
     reply.status(200).send({
@@ -37,6 +31,6 @@ const run = async () => {
       console.log(chalk.green(`Server is listening on port ${PORT}...`));
     },
   );
-};
+}
 
 run();

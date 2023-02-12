@@ -7,9 +7,12 @@ import {
 
 import type { UserModelType } from '@akv-edu-node-blog/core-lib';
 
-import { sequelize } from '../../config/sequelize';
+import { sequelize } from '../config/sequelize';
 
+import { idColumn } from './shared/id-column';
 import { PostModel } from './post';
+import { UserAuthInfoModel } from './user-auth-info';
+import { UserRoleModel } from './user-role';
 
 export class UserModel
   extends Model<InferAttributes<UserModel>, InferCreationAttributes<UserModel>>
@@ -25,13 +28,7 @@ export class UserModel
 
 UserModel.init(
   {
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
-      allowNull: false,
-      unique: true,
-    },
+    id: idColumn,
     role: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -56,5 +53,9 @@ UserModel.init(
   },
   { sequelize, tableName: 'users' },
 );
-
+UserModel.hasOne(UserAuthInfoModel, { foreignKey: 'user' });
+UserModel.belongsToMany(UserRoleModel, {
+  through: 'user_to_user_role',
+  foreignKey: 'user',
+});
 UserModel.hasMany(PostModel, { foreignKey: 'posts' });

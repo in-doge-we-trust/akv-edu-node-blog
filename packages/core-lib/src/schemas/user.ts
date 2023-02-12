@@ -17,7 +17,7 @@ export const UserSchemaShape = z
     email: z.string().email(),
     posts: z.array(IdSchema),
 
-    role: IdSchema,
+    role: z.array(IdSchema),
     authInfo: IdSchema,
   })
   .merge(WithIdSchemaMixin);

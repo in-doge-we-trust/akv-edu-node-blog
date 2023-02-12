@@ -4,7 +4,7 @@
   "engines": {
     "node": ">= 18"
   },
-  "main": "src/app.ts",
+  "main": "app/index.ts",
   "scripts": {
     "dev": "NODE_ENV=development nodemon",
     "build": "node ./scripts/build.js",
