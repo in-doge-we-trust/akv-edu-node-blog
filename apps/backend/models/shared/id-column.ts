@@ -1,6 +1,6 @@
-import { DataTypes, Model, ModelAttributeColumnOptions } from 'sequelize';
+import { DataTypes, ModelAttributeColumnOptions } from 'sequelize';
 
-export const idColumn: ModelAttributeColumnOptions<Model> = {
+export const idColumn: ModelAttributeColumnOptions = {
   type: DataTypes.UUID,
   defaultValue: DataTypes.UUIDV4,
   primaryKey: true,

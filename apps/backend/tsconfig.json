@@ -26,10 +26,7 @@
     "importsNotUsedAsValues": "error",
     "resolveJsonModule": true,
 
-    "allowJs": true,
-    "checkJs": true,
-
-    // Required to supress tsc errors
+    // Required to suppress tsc errors
     "outDir": "dist"
   }
 }

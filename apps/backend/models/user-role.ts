@@ -2,41 +2,47 @@ import {
   DataTypes,
   InferAttributes,
   InferCreationAttributes,
-  Model,
+  Sequelize,
 } from 'sequelize';
 
 import { UserRolesEnum, UserRoleType } from '@akv-edu-node-blog/core-lib';
 
-import { sequelize } from '../config/sequelize';
-
 import { idColumn } from './shared/id-column';
+import { Model } from './shared/model';
 import { UserModel } from './user';
+
+type UserRoleModelInterface = UserRoleType;
 
 export class UserRoleModel
   extends Model<
     InferAttributes<UserRoleModel>,
     InferCreationAttributes<UserRoleModel>
   >
-  implements UserRoleType
+  implements UserRoleModelInterface
 {
   declare id: string;
   declare role: UserRolesEnum;
-}
 
-UserRoleModel.init(
-  {
-    id: idColumn,
-    role: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        isIn: [[UserRolesEnum.Reader, UserRolesEnum.Admin]],
+  static override initializeModel(sequelize: Sequelize) {
+    UserRoleModel.init(
+      {
+        id: idColumn,
+        role: {
+          type: DataTypes.TEXT,
+          allowNull: false,
+          validate: {
+            isIn: [[UserRolesEnum.Reader, UserRolesEnum.Admin]],
+          },
+        },
       },
-    },
-  },
-  { sequelize },
-);
-UserRoleModel.belongsToMany(UserModel, {
-  through: 'user_role_to_user',
-  foreignKey: 'role',
-});
+      { sequelize, tableName: 'user_roles' },
+    );
+  }
+
+  static override associateModel(): void {
+    UserRoleModel.belongsToMany(UserModel, {
+      through: 'user_to_user_role',
+      foreignKey: 'role',
+    });
+  }
+}

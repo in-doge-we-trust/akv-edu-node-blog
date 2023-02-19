@@ -9,7 +9,7 @@ const tsConfigBuildPath = path.join(rootPath, 'tsconfig.build.json');
 
 const envFilePath = path.join(rootPath, '.env');
 
-const appEntryFilePath = path.join(rootPath, 'src', 'app.ts');
+const appEntryFilePath = path.join(rootPath, 'app', 'index.ts');
 
 module.exports = {
   rootPath,

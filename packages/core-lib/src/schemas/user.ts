@@ -15,10 +15,7 @@ export const UserSchemaShape = z
   .object({
     fullName: z.string(),
     email: z.string().email(),
-    posts: z.array(IdSchema),
-
-    role: z.array(IdSchema),
-    authInfo: IdSchema,
+    roles: z.array(IdSchema),
   })
   .merge(WithIdSchemaMixin);
 export const UserSchema = UserSchemaShape;
