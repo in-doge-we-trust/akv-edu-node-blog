@@ -6,7 +6,7 @@ const testDBConnection = async () => {
   console.log(chalk.cyan('\nTesting the DB connection...\n'));
 
   try {
-    await sequelize.authenticate();
+    await sequelize.authenticate({ logging: false });
 
     console.log(chalk.green('\nDB is accessible!\n'));
   } catch (e) {
@@ -21,7 +21,7 @@ export const initDB = async () => {
   try {
     await testDBConnection();
 
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: true, logging: false });
   } catch {
     console.log(chalk.red('\nFailed to initialize DB!\n'));
     process.exit(1);

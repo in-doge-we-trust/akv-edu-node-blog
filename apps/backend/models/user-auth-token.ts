@@ -20,38 +20,50 @@ export class UserAuthTokenModel
   >
   implements UserAuthTokenModelInterface
 {
-  declare id: string;
-  declare userAuthInfo: string;
-  declare refreshToken: string;
-  declare validUntil: string;
+  declare id: UserAuthTokenType['id'];
+  declare userAuthInfo: UserAuthTokenType['userAuthInfo'];
+  declare refreshToken: UserAuthTokenType['refreshToken'];
+  declare validUntil: UserAuthTokenType['validUntil'];
+
+  static META = {
+    TABLE_NAME: 'user_auth_tokens',
+
+    ...idColumn.meta,
+
+    COL_USER_AUTH_INFO: 'user_auth_info',
+    COL_REFRESH_TOKEN: 'refresh_token',
+    COL_VALID_UNTIL: 'valid_until',
+  };
 
   static override initializeModel(sequelize: Sequelize): void {
     UserAuthTokenModel.init(
       {
-        id: idColumn,
+        id: idColumn.config,
         userAuthInfo: {
           type: DataTypes.UUID,
-          defaultValue: DataTypes.UUIDV4,
-          allowNull: false,
-          unique: true,
-          primaryKey: true,
+          field: this.META.COL_USER_AUTH_INFO,
         },
         refreshToken: {
           type: DataTypes.TEXT,
           allowNull: false,
+          field: this.META.COL_REFRESH_TOKEN,
         },
         validUntil: {
           type: DataTypes.DATE,
           allowNull: false,
+          field: this.META.COL_VALID_UNTIL,
         },
       },
-      { sequelize, tableName: 'user_auth_tokens' },
+      {
+        sequelize,
+        tableName: this.META.TABLE_NAME,
+      },
     );
   }
 
   static override associateModel(): void {
     UserAuthTokenModel.belongsTo(UserAuthInfoModel, {
-      foreignKey: 'authInfo',
+      foreignKey: this.META.COL_USER_AUTH_INFO,
     });
   }
 }

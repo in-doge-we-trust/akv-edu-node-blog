@@ -21,35 +21,53 @@ export class UserAuthInfoModel
   >
   implements UserAuthInfoModelInterface
 {
-  declare id: string;
-  declare user: string;
-  declare password: string;
-  declare authToken: string;
+  declare id: UserAuthInfoType['id'];
+  declare user: UserAuthInfoType['user'];
+  declare password: UserAuthInfoType['password'];
+  declare authToken: UserAuthInfoType['authToken'];
+
+  static META = {
+    TABLE_NAME: 'user_auth_infos',
+
+    ...idColumn.meta,
+
+    COL_USER: 'user',
+    COL_PASSWORD: 'password',
+    COL_USER_AUTH_TOKEN: 'user_auth_token',
+  };
 
   static override initializeModel(sequelize: Sequelize): void {
     UserAuthInfoModel.init(
       {
-        id: idColumn,
+        id: idColumn.config,
         user: {
           type: DataTypes.UUID,
           allowNull: false,
+          field: this.META.COL_USER,
         },
         password: {
           type: DataTypes.TEXT,
           allowNull: false,
+          field: this.META.COL_PASSWORD,
         },
         authToken: {
           type: DataTypes.UUID,
+          field: this.META.COL_USER_AUTH_TOKEN,
         },
       },
-      { sequelize, tableName: 'user_auth_infos' },
+      {
+        sequelize,
+        tableName: this.META.TABLE_NAME,
+      },
     );
   }
 
   static override associateModel(): void {
     UserAuthInfoModel.hasOne(UserAuthTokenModel, {
-      foreignKey: 'authToken',
+      foreignKey: UserAuthTokenModel.META.COL_USER_AUTH_INFO,
     });
-    UserAuthInfoModel.belongsTo(UserModel, { foreignKey: 'user' });
+    UserAuthInfoModel.belongsTo(UserModel, {
+      foreignKey: this.META.COL_USER,
+    });
   }
 }

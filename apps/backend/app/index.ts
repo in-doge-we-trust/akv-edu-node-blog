@@ -28,7 +28,7 @@ async function run() {
         process.exit(1);
       }
 
-      console.log(chalk.green(`Server is listening on port ${PORT}...`));
+      console.log(chalk.green(`\nServer is listening on port ${PORT}...\n`));
     },
   );
 }
