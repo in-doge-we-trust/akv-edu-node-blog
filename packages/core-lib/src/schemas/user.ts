@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { IdSchema, WithIdSchemaMixin } from './id';
+import { WithIdSchemaMixin } from './id';
 import {
   refineUserPasswordAndConfirmationMatch,
   WithUserPasswordWithConfirmationSchemaMixin,
@@ -15,10 +15,6 @@ export const UserSchemaShape = z
   .object({
     fullName: z.string(),
     email: z.string().email(),
-    posts: z.array(IdSchema),
-
-    role: IdSchema,
-    authInfo: IdSchema,
   })
   .merge(WithIdSchemaMixin);
 export const UserSchema = UserSchemaShape;

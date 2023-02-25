@@ -4,16 +4,26 @@
   "engines": {
     "node": ">= 18"
   },
-  "main": "src/app.ts",
+  "main": "app/index.ts",
   "scripts": {
     "dev": "NODE_ENV=development nodemon",
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.js",
+    "migrator": "node ./scripts/migrator.js",
+    "migrator:create": "yarn migrator create --folder=migrations --allow-extension=.ts --name",
+    "migrator:execute-all": "yarn migrator up",
+    "migrator:revert-all": "yarn migrator down",
+    "migrator:list-pending": "yarn migrator pending",
+    "migrator:list-executed": "yarn migrator executed"
   },
   "dependencies": {
     "@akv-edu-node-blog/core-lib": "workspace:^",
     "chalk": "4.1.2",
     "dotenv": "^16.0.3",
     "fastify": "^4.11.0",
+    "pg": "^8.9.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.28.0",
+    "umzug": "^3.2.1",
     "zod": "^3.20.2"
   },
   "devDependencies": {

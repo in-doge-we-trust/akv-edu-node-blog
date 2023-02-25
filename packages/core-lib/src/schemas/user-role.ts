@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-import { UserRoles } from '../enums/user-roles';
+import { UserRolesEnum } from '../enums/user-roles';
 import { WithIdSchemaMixin } from './id';
 
-export const UserRoleSchema = z
+export const UserRoleModelSchema = z
   .object({
-    role: z.nativeEnum(UserRoles),
+    role: z.nativeEnum(UserRolesEnum),
   })
   .merge(WithIdSchemaMixin);

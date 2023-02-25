@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { WithEntityMetadataSchemaMixin } from './entity-metadata';
 
+import { WithEntityMetadataSchemaMixin } from './entity-metadata';
 import { IdSchema, WithIdSchemaMixin } from './id';
 
 /**
