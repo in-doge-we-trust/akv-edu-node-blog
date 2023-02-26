@@ -1,14 +1,47 @@
-import { z } from 'zod';
+import { object } from 'zod';
 
 import { IdSchema, WithIdSchemaMixin } from './id';
-import { WithUserPasswordSchemaMixin } from './user-password';
+import { UserAuthTokenReadSchema } from './user-auth-token';
+import {
+  refineOldUserPasswordNotMatchUserPasswordAndConfirmationMatch,
+  refineUserPasswordAndConfirmationMatch,
+  WithUserPasswordSchemaMixin,
+  WithUserPasswordWithConfirmationSchemaMixin,
+  WithUserPasswordWithOldWithConfirmationSchemaMixin,
+} from './user-password';
 
-export const UserAuthInfoSchemaShape = z
-  .object({
-    user: IdSchema,
-    authToken: IdSchema,
-  })
+export const UserAuthInfoSchemaShape = object({
+  user: IdSchema,
+  authToken: IdSchema.nullable(),
+})
   .merge(WithIdSchemaMixin)
   .merge(WithUserPasswordSchemaMixin);
-
 export const UserAuthInfoSchema = UserAuthInfoSchemaShape;
+
+export const UserAuthInfoCreateSchemaShape = UserAuthInfoSchemaShape.pick({
+  user: true,
+}).merge(WithUserPasswordWithConfirmationSchemaMixin);
+export const UserAuthInfoCreateSchema =
+  UserAuthInfoCreateSchemaShape.superRefine(
+    refineUserPasswordAndConfirmationMatch,
+  );
+
+export const UserAuthInfoReadSchemaShape = UserAuthInfoSchemaShape.pick({
+  id: true,
+  user: true,
+  password: true,
+}).extend({
+  authToken: UserAuthTokenReadSchema,
+});
+export const UserAuthInfoReadSchema = UserAuthInfoReadSchemaShape;
+
+export const UserAuthInfoUpdateTokenSchema = UserAuthInfoSchemaShape.pick({
+  authToken: true,
+});
+export const UserAuthInfoUpdatePasswordSchema =
+  WithUserPasswordWithOldWithConfirmationSchemaMixin.superRefine(
+    refineOldUserPasswordNotMatchUserPasswordAndConfirmationMatch,
+  );
+export const UserAuthInfoUpdateSchema = UserAuthInfoUpdateTokenSchema.or(
+  UserAuthInfoUpdatePasswordSchema,
+);

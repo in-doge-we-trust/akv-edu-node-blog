@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   DataTypes,
   InferAttributes,
   InferCreationAttributes,
@@ -21,10 +22,10 @@ export class UserAuthInfoModel
   >
   implements UserAuthInfoModelInterface
 {
-  declare id: UserAuthInfoType['id'];
+  declare id: CreationOptional<UserAuthInfoType['id']>;
   declare user: UserAuthInfoType['user'];
   declare password: UserAuthInfoType['password'];
-  declare authToken: UserAuthInfoType['authToken'];
+  declare authToken: CreationOptional<UserAuthInfoType['authToken']>;
 
   static META = {
     TABLE_NAME: 'user_auth_infos',

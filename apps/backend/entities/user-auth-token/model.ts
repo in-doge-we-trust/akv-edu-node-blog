@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   DataTypes,
   InferAttributes,
   InferCreationAttributes,
@@ -20,7 +21,7 @@ export class UserAuthTokenModel
   >
   implements UserAuthTokenModelInterface
 {
-  declare id: UserAuthTokenType['id'];
+  declare id: CreationOptional<UserAuthTokenType['id']>;
   declare userAuthInfo: UserAuthTokenType['userAuthInfo'];
   declare refreshToken: UserAuthTokenType['refreshToken'];
   declare validUntil: UserAuthTokenType['validUntil'];

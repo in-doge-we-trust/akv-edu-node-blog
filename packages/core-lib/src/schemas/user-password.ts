@@ -1,29 +1,57 @@
-import { z } from 'zod';
+import {
+  string,
+  object,
+  infer as zodInfer,
+  RefinementCtx as ZodRefinementCtx,
+  ZodIssueCode,
+} from 'zod';
 
 // TODO: add format validation
-export const UserPasswordSchema = z.string();
+export const UserPasswordSchema = string();
 
-export const WithUserPasswordSchemaMixin = z.object({
+export const WithUserPasswordSchemaMixin = object({
   password: UserPasswordSchema,
 });
 
 export const WithUserPasswordWithConfirmationSchemaMixin =
   WithUserPasswordSchemaMixin.extend({
-    passwordConfirm: z.string(),
+    passwordConfirm: string(),
+  });
+
+export const WithUserPasswordWithOldWithConfirmationSchemaMixin =
+  WithUserPasswordWithConfirmationSchemaMixin.extend({
+    oldPassword: string(),
   });
 
 export const refineUserPasswordAndConfirmationMatch = (
   {
     password,
     passwordConfirm,
-  }: z.infer<typeof WithUserPasswordWithConfirmationSchemaMixin>,
-  ctx: z.RefinementCtx,
+  }: zodInfer<typeof WithUserPasswordWithConfirmationSchemaMixin>,
+  ctx: ZodRefinementCtx,
 ): void => {
   if (password !== passwordConfirm) {
     ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      path: ['passwordConfirm'],
+      code: ZodIssueCode.custom,
       message: 'Passwords do not match!',
     });
+  }
+};
+
+export const refineOldUserPasswordNotMatchUserPasswordAndConfirmationMatch = (
+  {
+    oldPassword,
+    password,
+    passwordConfirm,
+  }: zodInfer<typeof WithUserPasswordWithOldWithConfirmationSchemaMixin>,
+  ctx: ZodRefinementCtx,
+): void => {
+  if (oldPassword === password) {
+    ctx.addIssue({
+      code: ZodIssueCode.custom,
+      message: 'New password must not match the old one!',
+    });
+  } else {
+    refineUserPasswordAndConfirmationMatch({ password, passwordConfirm }, ctx);
   }
 };
