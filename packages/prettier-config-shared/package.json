@@ -1,5 +1,12 @@
 {
   "name": "@akv-edu-node-blog/prettier-config-shared",
+  "description": "Shared Prettier config used across Akv Edu Node Blog apps and libraries",
+  "version": "0.0.1",
+  "author": {
+    "name": "Bulat Murtazin @ InDogeWeTrust",
+    "email": "bulatf.murtazin@gmail.com"
+  },
+  "main": "index.js",
   "packageManager": "yarn@3.3.1",
   "engines": {
     "node": ">=18"

@@ -1,6 +1,11 @@
 {
   "name": "@akv-edu-node-blog/frontend",
   "version": "0.0.1",
+  "description": "Akv Edu Node Blog frontend app",
+  "author": {
+    "name": "Bulat Murtazin @ InDogeWeTrust",
+    "email": "bulatf.murtazin@gmail.com"
+  },
   "private": true,
   "license": "MIT",
   "packageManager": "yarn@3.3.1",

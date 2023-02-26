@@ -1,6 +1,6 @@
 {
   "name": "@akv-edu-node-blog/core-lib",
-  "description": "A set of core things shared between frontend and backend apps",
+  "description": "A set of core things shared between Akv Edu Node Blog apps",
   "version": "0.0.1",
   "author": {
     "name": "Bulat Murtazin @ InDogeWeTrust",

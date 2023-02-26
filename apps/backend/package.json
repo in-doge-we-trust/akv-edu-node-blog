@@ -1,5 +1,10 @@
 {
   "name": "@akv-edu-node-blog/backend",
+  "description": "Akv Edu Node Blog backend app",
+  "author": {
+    "name": "Bulat Murtazin @ InDogeWeTrust",
+    "email": "bulatf.murtazin@gmail.com"
+  },
   "packageManager": "yarn@3.3.1",
   "engines": {
     "node": ">= 18"
