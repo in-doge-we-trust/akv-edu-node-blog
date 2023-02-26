@@ -27,11 +27,18 @@ export const UserCreateSchema = UserCreateSchemaShape.superRefine(
   refineUserPasswordAndConfirmationMatch,
 );
 
+export const UserReadSchemaShape = UserSchemaShape.pick({
+  id: true,
+  fullName: true,
+  email: true,
+});
+export const UserReadSchema = UserReadSchemaShape;
+
 export const UserUpdateSchemaShape = UserSchemaShape.pick({
   fullName: true,
   email: true,
 });
-export const UserUpdateSchema = UserUpdateSchemaShape;
+export const UserUpdateSchema = UserUpdateSchemaShape.partial();
 
 export const UserUpdatePasswordSchemaShape =
   WithUserPasswordWithConfirmationSchemaMixin;

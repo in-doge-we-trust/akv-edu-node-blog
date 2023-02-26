@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   DataTypes,
   InferAttributes,
   InferCreationAttributes,
@@ -20,7 +21,7 @@ export class UserModel
   extends Model<InferAttributes<UserModel>, InferCreationAttributes<UserModel>>
   implements UserModelInterface
 {
-  declare id: UserModelType['id'];
+  declare id: CreationOptional<UserModelType['id']>;
   declare fullName: UserModelType['fullName'];
   declare email: UserModelType['email'];
 

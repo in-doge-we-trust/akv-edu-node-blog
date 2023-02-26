@@ -1,18 +1,21 @@
-import type { z } from 'zod';
+import type { infer as zodInfer } from 'zod';
 
 import type {
   UserCreateSchema,
+  UserReadSchema,
   UserSchema,
   UserUpdatePasswordSchema,
   UserUpdateSchema,
 } from '../schemas/user';
 
-export type UserModelType = z.infer<typeof UserSchema>;
+export type UserModelType = zodInfer<typeof UserSchema>;
 
-export type UserCreateDtoType = z.infer<typeof UserCreateSchema>;
+export type UserCreateDtoType = zodInfer<typeof UserCreateSchema>;
 
-export type UserUpdateDtoType = z.infer<typeof UserUpdateSchema>;
+export type UserReadDtoType = zodInfer<typeof UserReadSchema>;
 
-export type UserUpdatePasswordDtoType = z.infer<
+export type UserUpdateDtoType = zodInfer<typeof UserUpdateSchema>;
+
+export type UserUpdatePasswordDtoType = zodInfer<
   typeof UserUpdatePasswordSchema
 >;
