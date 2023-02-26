@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   DataTypes,
   InferAttributes,
   InferCreationAttributes,
@@ -22,7 +23,7 @@ export class UserRoleModel
   >
   implements UserRoleModelInterface
 {
-  declare id: UserRoleModelType['id'];
+  declare id: CreationOptional<UserRoleModelType['id']>;
   declare role: UserRoleModelType['role'];
 
   static META = {
