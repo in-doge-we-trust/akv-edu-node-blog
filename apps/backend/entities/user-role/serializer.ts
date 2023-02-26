@@ -1,3 +1,3 @@
-export class UserRoleService {
+export class UserRoleSerializer {
   // TODO
 }
