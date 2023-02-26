@@ -3,7 +3,9 @@ import type { UserReadDtoType } from '@akv-edu-node-blog/core-lib';
 import type { UserModel } from './model';
 
 export class UserSerializer {
-  static serializeOne(modelInstance: UserModel): UserReadDtoType {
+  static async serializeOne(
+    modelInstance: UserModel,
+  ): Promise<UserReadDtoType> {
     return {
       id: modelInstance.getDataValue('id'),
       fullName: modelInstance.getDataValue('fullName'),
@@ -11,7 +13,9 @@ export class UserSerializer {
     };
   }
 
-  static serializeAll(modelInstances: UserModel[]): UserReadDtoType[] {
-    return modelInstances.map(this.serializeOne);
+  static async serializeAll(
+    modelInstances: UserModel[],
+  ): Promise<UserReadDtoType[]> {
+    return Promise.all(modelInstances.map(this.serializeOne));
   }
 }

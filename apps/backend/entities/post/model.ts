@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   DataTypes,
   InferAttributes,
   InferCreationAttributes,
@@ -17,7 +18,7 @@ export class PostModel
   extends Model<InferAttributes<PostModel>, InferCreationAttributes<PostModel>>
   implements PostModelInterface
 {
-  declare id: PostModelType['id'];
+  declare id: CreationOptional<PostModelType['id']>;
   declare title: PostModelType['title'];
   declare content: PostModelType['content'];
   declare author: PostModelType['author'];
