@@ -37,8 +37,8 @@ export const UserReadSchema = UserReadSchemaShape;
 export const UserUpdateSchemaShape = UserSchemaShape.pick({
   fullName: true,
   email: true,
-});
-export const UserUpdateSchema = UserUpdateSchemaShape.partial();
+}).partial();
+export const UserUpdateSchema = UserUpdateSchemaShape;
 
 export const UserUpdatePasswordSchemaShape =
   WithUserPasswordWithConfirmationSchemaMixin;

@@ -13,7 +13,10 @@ export const UserRoleCreateSchema = UserRoleModelSchema.pick({
   role: true,
 });
 
-export const UserRoleReadSchema = UserRoleModelSchema;
+export const UserRoleReadSchema = UserRoleModelSchema.pick({
+  id: true,
+  role: true,
+});
 
 export const UserRoleUpdateSchema = UserRoleModelSchema.pick({
   role: true,
