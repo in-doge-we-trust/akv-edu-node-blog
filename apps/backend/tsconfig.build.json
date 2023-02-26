@@ -4,6 +4,6 @@
     "src/*",
     "config/*",
     "migrations/*",
-    "models/*"
+    "entities/*"
   ]
 }

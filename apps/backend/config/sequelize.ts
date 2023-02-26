@@ -1,12 +1,12 @@
 import { Sequelize } from 'sequelize';
 
-import { PostModel } from '../models/post';
-import { UserModel } from '../models/user';
-import { UserAuthInfoModel } from '../models/user-auth-info';
-import { UserAuthTokenModel } from '../models/user-auth-token';
-import { UserRoleModel } from '../models/user-role';
+import { PostModel } from '../entities/post/model';
+import { UserModel } from '../entities/user/model';
+import { UserAuthInfoModel } from '../entities/user-auth-info/model';
+import { UserAuthTokenModel } from '../entities/user-auth-token/model';
+import { UserRoleModel } from '../entities/user-role/model';
 
-import { UserToUserRoleJunction } from '../models/junctions/user-to-user-role';
+import { UserToUserRoleJunction } from '../entities/junctions/user-to-user-role';
 
 import { POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, DB_PORT } from './env';
 

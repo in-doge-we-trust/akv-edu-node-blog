@@ -7,9 +7,9 @@ import {
 
 import type { PostModelType } from '@akv-edu-node-blog/core-lib';
 
-import { idColumn } from './shared/id-column';
-import { Model } from './shared/model';
-import { UserModel } from './user';
+import { idColumn } from '../shared/id-column';
+import { Model } from '../shared/model';
+import { UserModel } from '../user/model';
 
 type PostModelInterface = Omit<PostModelType, 'createdAt' | 'updatedAt'>;
 

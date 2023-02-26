@@ -7,9 +7,9 @@ import {
 
 import type { UserAuthTokenType } from '@akv-edu-node-blog/core-lib';
 
-import { idColumn } from './shared/id-column';
-import { Model } from './shared/model';
-import { UserAuthInfoModel } from './user-auth-info';
+import { idColumn } from '../shared/id-column';
+import { Model } from '../shared/model';
+import { UserAuthInfoModel } from '../user-auth-info/model';
 
 type UserAuthTokenModelInterface = UserAuthTokenType;
 

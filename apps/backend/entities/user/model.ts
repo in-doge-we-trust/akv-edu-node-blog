@@ -7,12 +7,12 @@ import {
 
 import type { UserModelType } from '@akv-edu-node-blog/core-lib';
 
-import { idColumn } from './shared/id-column';
-import { Model } from './shared/model';
-import { PostModel } from './post';
-import { UserAuthInfoModel } from './user-auth-info';
-import { UserRoleModel } from './user-role';
-import { UserToUserRoleJunction } from './junctions/user-to-user-role';
+import { idColumn } from '../shared/id-column';
+import { Model } from '../shared/model';
+import { PostModel } from '../post/model';
+import { UserAuthInfoModel } from '../user-auth-info/model';
+import { UserRoleModel } from '../user-role/model';
+import { UserToUserRoleJunction } from '../junctions/user-to-user-role';
 
 type UserModelInterface = UserModelType;
 
