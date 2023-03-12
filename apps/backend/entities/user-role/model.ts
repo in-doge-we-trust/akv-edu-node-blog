@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   DataTypes,
   InferAttributes,
   InferCreationAttributes,
@@ -7,10 +8,11 @@ import {
 
 import { UserRolesEnum, UserRoleModelType } from '@akv-edu-node-blog/core-lib';
 
-import { idColumn } from './shared/id-column';
-import { Model } from './shared/model';
-import { UserModel } from './user';
-import { UserToUserRoleJunction } from './junctions/user-to-user-role';
+import { idColumn } from '../shared/id-column';
+import { Model } from '../shared/model';
+import { UserModel } from '../user/model';
+
+import { UserToUserRoleJunction } from '../junctions/user-to-user-role';
 
 type UserRoleModelInterface = UserRoleModelType;
 
@@ -21,7 +23,7 @@ export class UserRoleModel
   >
   implements UserRoleModelInterface
 {
-  declare id: UserRoleModelType['id'];
+  declare id: CreationOptional<UserRoleModelType['id']>;
   declare role: UserRoleModelType['role'];
 
   static META = {

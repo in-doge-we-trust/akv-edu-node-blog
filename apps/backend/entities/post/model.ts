@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   DataTypes,
   InferAttributes,
   InferCreationAttributes,
@@ -7,9 +8,9 @@ import {
 
 import type { PostModelType } from '@akv-edu-node-blog/core-lib';
 
-import { idColumn } from './shared/id-column';
-import { Model } from './shared/model';
-import { UserModel } from './user';
+import { idColumn } from '../shared/id-column';
+import { Model } from '../shared/model';
+import { UserModel } from '../user/model';
 
 type PostModelInterface = Omit<PostModelType, 'createdAt' | 'updatedAt'>;
 
@@ -17,7 +18,7 @@ export class PostModel
   extends Model<InferAttributes<PostModel>, InferCreationAttributes<PostModel>>
   implements PostModelInterface
 {
-  declare id: PostModelType['id'];
+  declare id: CreationOptional<PostModelType['id']>;
   declare title: PostModelType['title'];
   declare content: PostModelType['content'];
   declare author: PostModelType['author'];

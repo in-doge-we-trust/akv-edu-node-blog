@@ -11,8 +11,8 @@ import type {
 } from '@akv-edu-node-blog/core-lib';
 
 import { Model } from '../shared/model';
-import { UserModel } from '../user';
-import { UserRoleModel } from '../user-role';
+import { UserModel } from '../user/model';
+import { UserRoleModel } from '../user-role/model';
 
 export class UserToUserRoleJunction extends Model<
   InferAttributes<UserToUserRoleJunction>,
