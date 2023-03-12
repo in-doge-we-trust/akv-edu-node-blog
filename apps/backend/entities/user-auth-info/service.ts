@@ -40,4 +40,18 @@ export class UserAuthInfoService {
       );
     }
   }
+
+  static async delete(id: UserAuthInfoModel['id']): Promise<void> {
+    try {
+      const foundInstance = await this.getOne(id);
+
+      foundInstance.destroy();
+    } catch (e) {
+      console.error(e);
+
+      throw new Error(
+        `Could not delete "${UserAuthInfoModel.META.TABLE_NAME}" with "id" equal to "${id}"!`,
+      );
+    }
+  }
 }
