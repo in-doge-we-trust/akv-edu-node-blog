@@ -2,20 +2,37 @@ import type {
   UserCreateDtoType,
   UserUpdateDtoType,
 } from '@akv-edu-node-blog/core-lib';
+
+import { sequelize } from '../../config/sequelize';
+import { UserAuthInfoService } from '../user-auth-info/service';
+
 import { UserModel } from './model';
 
 export class UserService {
   static async create(data: UserCreateDtoType): Promise<UserModel> {
     try {
-      return UserModel.create(data);
+      return sequelize.transaction(async (transaction) => {
+        const { fullName, email, password, passwordConfirm } = data;
+
+        const user = await UserModel.create(
+          { fullName, email },
+          { transaction },
+        );
+        await UserAuthInfoService.create(
+          {
+            password,
+            passwordConfirm,
+            user: user.id,
+          },
+          { transaction },
+        );
+
+        return user;
+      });
     } catch (e) {
       console.error(e);
 
-      throw new Error(
-        `Could not create "${
-          UserModel.META.TABLE_NAME
-        }" entry! Data: ${JSON.stringify(data, null, 2)}`,
-      );
+      throw new Error(`Could not create "${UserModel.META.TABLE_NAME}" entry!`);
     }
   }
 
