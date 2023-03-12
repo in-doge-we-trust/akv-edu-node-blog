@@ -31,7 +31,7 @@ export const UserAuthInfoReadSchemaShape = UserAuthInfoSchemaShape.pick({
   user: true,
   password: true,
 }).extend({
-  authToken: UserAuthTokenReadSchema,
+  authToken: UserAuthTokenReadSchema.nullable(),
 });
 export const UserAuthInfoReadSchema = UserAuthInfoReadSchemaShape;
 
