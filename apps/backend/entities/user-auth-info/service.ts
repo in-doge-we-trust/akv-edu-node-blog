@@ -1,3 +1,6 @@
+import bcrypt from 'bcrypt';
+import type { Attributes, CreateOptions } from 'sequelize';
+
 import type { UserAuthInfoCreateDtoType } from '@akv-edu-node-blog/core-lib';
 
 import { UserAuthInfoModel } from './model';
@@ -5,16 +8,26 @@ import { UserAuthInfoModel } from './model';
 export class UserAuthInfoService {
   static async create(
     data: UserAuthInfoCreateDtoType,
+    options?: CreateOptions<Attributes<UserAuthInfoModel>>,
   ): Promise<UserAuthInfoModel> {
     try {
-      return UserAuthInfoModel.create(data);
+      const { password, passwordConfirm, user } = data;
+
+      if (password !== passwordConfirm) {
+        throw new Error('Passwords do not match!');
+      }
+
+      const hashedPassword = await bcrypt.hash(password, 13);
+
+      return UserAuthInfoModel.create(
+        { user, password: hashedPassword },
+        options,
+      );
     } catch (e) {
       console.error(e);
 
       throw new Error(
-        `Could not create "${
-          UserAuthInfoModel.META.TABLE_NAME
-        }" entry! Params: ${JSON.stringify(data, null, 2)}!`,
+        `Could not create "${UserAuthInfoModel.META.TABLE_NAME}" entry!`,
       );
     }
   }
