@@ -1,15 +1,16 @@
 import {
+  UserRoleCreateSchema,
+  UserRoleReadSchema,
+  UserRoleUpdateSchema,
+} from '../user-role';
+
+import {
   buildJsonApiCreateRequestObjectSchema,
   buildJsonApiCreateResponseObjectSchema,
   buildJsonApiReadResponseObjectSchema,
   buildJsonApiUpdateRequestObjectSchema,
   buildJsonApiUpdateResponseObjectSchema,
 } from './base';
-import {
-  UserRoleCreateSchema,
-  UserRoleReadSchema,
-  UserRoleUpdateSchema,
-} from '../user-role';
 
 const resourceType = 'user-roles';
 

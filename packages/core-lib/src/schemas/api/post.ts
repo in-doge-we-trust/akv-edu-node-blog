@@ -1,4 +1,10 @@
 import {
+  PostCreateSchemaShape,
+  PostReadSchemaShape,
+  PostUpdateSchemaShape,
+} from '../post';
+
+import {
   buildJsonApiCreateRequestObjectSchema,
   buildJsonApiCreateResponseObjectSchema,
   buildJsonApiDeleteResponseObjectSchema,
@@ -6,11 +12,6 @@ import {
   buildJsonApiUpdateRequestObjectSchema,
   buildJsonApiUpdateResponseObjectSchema,
 } from './base';
-import {
-  PostCreateSchemaShape,
-  PostReadSchemaShape,
-  PostUpdateSchemaShape,
-} from '../post';
 
 const resourceType = 'posts';
 

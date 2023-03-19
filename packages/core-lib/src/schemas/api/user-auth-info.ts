@@ -1,17 +1,17 @@
 import {
-  buildJsonApiCreateRequestObjectSchema,
-  buildJsonApiCreateResponseObjectSchema,
-  buildJsonApiDeleteResponseObjectSchema,
-  buildJsonApiReadResponseObjectSchema,
-  buildJsonApiUpdateRequestObjectSchema,
-  buildJsonApiUpdateResponseObjectSchema,
-} from './base';
-import {
   UserAuthInfoCreateSchemaShape,
   UserAuthInfoReadSchemaShape,
   UserAuthInfoUpdatePasswordSchemaShape,
   UserAuthInfoUpdateTokenSchema,
 } from '../user-auth-info';
+
+import {
+  buildJsonApiCreateRequestObjectSchema,
+  buildJsonApiCreateResponseObjectSchema,
+  buildJsonApiDeleteResponseObjectSchema,
+  buildJsonApiReadResponseObjectSchema,
+  buildJsonApiUpdateRequestObjectSchema,
+} from './base';
 
 const resourceType = 'user-auth-infos';
 

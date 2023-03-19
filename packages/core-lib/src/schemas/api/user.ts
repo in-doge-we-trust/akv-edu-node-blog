@@ -1,4 +1,10 @@
 import {
+  UserCreateSchemaShape,
+  UserReadSchemaShape,
+  UserUpdateSchemaShape,
+} from '../user';
+
+import {
   buildJsonApiCreateRequestObjectSchema,
   buildJsonApiCreateResponseObjectSchema,
   buildJsonApiDeleteResponseObjectSchema,
@@ -6,11 +12,6 @@ import {
   buildJsonApiUpdateRequestObjectSchema,
   buildJsonApiUpdateResponseObjectSchema,
 } from './base';
-import {
-  UserCreateSchemaShape,
-  UserReadSchemaShape,
-  UserUpdateSchemaShape,
-} from '../user';
 
 const resourceType = 'users';
 
