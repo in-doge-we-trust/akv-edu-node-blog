@@ -8,3 +8,5 @@ export * from './user-auth-info';
 export * from './user';
 
 export * from './post';
+
+export * from './api';

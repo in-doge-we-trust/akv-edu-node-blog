@@ -13,8 +13,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "rimraf && tsc"
+    "dev": "rimraf dist && tsc --watch",
+    "build": "rimraf dist && tsc"
   },
   "devDependencies": {
     "@akv-edu-node-blog/prettier-config-shared": "workspace:^",
