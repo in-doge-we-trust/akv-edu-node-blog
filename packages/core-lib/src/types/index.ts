@@ -9,4 +9,4 @@ export * from './user';
 
 export * from './post';
 
-export * from './api';
+export * as ApiTypes from './api';

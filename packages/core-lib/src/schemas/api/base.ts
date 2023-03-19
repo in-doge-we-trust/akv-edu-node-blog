@@ -4,24 +4,19 @@ const WithResourceIdSchemaMixin = z.object({
   id: z.string().uuid(),
 });
 
-function buildJsonApiResourceObjectSchema<
-  ResourceType extends string,
-  ResourceAttributesSchema extends
-    | z.ZodObject<Record<string, z.ZodTypeAny>>
-    | undefined,
->(
-  resourceType: ResourceType,
-  resourceAttributesSchema?: ResourceAttributesSchema,
-) {
-  if (!resourceAttributesSchema) {
-    return z.object({
-      type: z.custom<ResourceType>((value) => value === resourceType),
-    });
-  }
+function buildJsonApiResourceAttributesSchemaMixin<
+  ResourceAttributesSchema extends z.ZodObject<Record<string, z.ZodTypeAny>>,
+>(resourceAttributesSchema: ResourceAttributesSchema) {
+  return z.object({
+    attributes: resourceAttributesSchema,
+  });
+}
 
+function buildJsonApiResourceObjectSchema<ResourceType extends string>(
+  resourceType: ResourceType,
+) {
   return z.object({
     type: z.custom<ResourceType>((value) => value === resourceType),
-    attributes: resourceAttributesSchema,
   });
 }
 
@@ -32,10 +27,9 @@ export function buildJsonApiReadResourceObjectSchema<
   resourceType: ResourceType,
   resourceAttributesSchema: ResourceAttributesSchema,
 ) {
-  return buildJsonApiResourceObjectSchema(
-    resourceType,
-    resourceAttributesSchema,
-  ).merge(WithResourceIdSchemaMixin);
+  return buildJsonApiResourceObjectSchema(resourceType)
+    .merge(WithResourceIdSchemaMixin)
+    .merge(buildJsonApiResourceAttributesSchemaMixin(resourceAttributesSchema));
 }
 
 export function buildJsonApiReadResponseObjectSchema<
@@ -77,9 +71,8 @@ export function buildJsonApiCreateResourceObjectSchema<
   resourceType: ResourceType,
   resourceAttributesSchema: ResourceAttributesSchema,
 ) {
-  return buildJsonApiResourceObjectSchema(
-    resourceType,
-    resourceAttributesSchema,
+  return buildJsonApiResourceObjectSchema(resourceType).merge(
+    buildJsonApiResourceAttributesSchemaMixin(resourceAttributesSchema),
   );
 }
 
@@ -118,18 +111,15 @@ export function buildJsonApiUpdateResourceObjectSchema<
   ResourceAttributesSchema extends z.ZodObject<Record<string, z.ZodTypeAny>>,
 >(
   resourceType: ResourceType,
-  resourceAttributesSchema?: ResourceAttributesSchema,
+  resourceAttributesSchema: ResourceAttributesSchema,
 ) {
-  if (!resourceAttributesSchema) {
-    return buildJsonApiResourceObjectSchema(resourceType).merge(
-      WithResourceIdSchemaMixin,
+  return buildJsonApiResourceObjectSchema(resourceType)
+    .merge(WithResourceIdSchemaMixin)
+    .merge(
+      buildJsonApiResourceAttributesSchemaMixin(
+        resourceAttributesSchema,
+      ).partial(),
     );
-  }
-
-  return buildJsonApiResourceObjectSchema(
-    resourceType,
-    resourceAttributesSchema.partial(),
-  ).merge(WithResourceIdSchemaMixin);
 }
 
 export function buildJsonApiUpdateRequestObjectSchema<
