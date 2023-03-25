@@ -1,5 +1,5 @@
 {
-  "name": "@akv-edu-node-blog/core-lib",
+  "name": "@aenb/core-lib",
   "description": "A set of core things shared between Akv Edu Node Blog apps",
   "version": "0.0.1",
   "author": {
@@ -10,21 +10,21 @@
   "engines": {
     "node": ">= 18"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
   "scripts": {
-    "dev": "rimraf dist && tsc --watch",
-    "build": "rimraf dist && tsc"
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src/**",
+    "lint:fix": "eslint --fix src/**"
   },
   "devDependencies": {
-    "@akv-edu-node-blog/prettier-config-shared": "workspace:^",
+    "@aenb/prettier-config-shared": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.1",
-    "rimraf": "^4.1.1",
     "typescript": "^4.9.4"
   },
   "peerDependencies": {

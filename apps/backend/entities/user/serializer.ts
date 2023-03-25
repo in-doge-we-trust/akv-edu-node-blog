@@ -1,4 +1,4 @@
-import type { UserReadDtoType } from '@akv-edu-node-blog/core-lib';
+import type { UserReadDtoType } from '@aenb/core-lib';
 
 import type { UserModel } from './model';
 

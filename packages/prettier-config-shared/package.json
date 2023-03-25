@@ -1,5 +1,5 @@
 {
-  "name": "@akv-edu-node-blog/prettier-config-shared",
+  "name": "@aenb/prettier-config-shared",
   "description": "Shared Prettier config used across Akv Edu Node Blog apps and libraries",
   "version": "0.0.1",
   "author": {
