@@ -9,10 +9,11 @@
 
     "strict": true,
     "alwaysStrict": true,
-
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
+
+    "skipLibCheck": true,
 
     "moduleResolution": "node",
 

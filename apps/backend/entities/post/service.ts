@@ -1,7 +1,4 @@
-import type {
-  PostCreateDtoType,
-  PostUpdateDtoType,
-} from '@akv-edu-node-blog/core-lib';
+import type { PostCreateDtoType, PostUpdateDtoType } from '@aenb/core-lib';
 
 import { PostModel } from './model';
 

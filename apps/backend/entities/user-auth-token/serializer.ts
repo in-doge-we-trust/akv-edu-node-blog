@@ -1,4 +1,4 @@
-import type { UserAuthTokenReadDtoType } from '@akv-edu-node-blog/core-lib';
+import type { UserAuthTokenReadDtoType } from '@aenb/core-lib';
 
 import type { UserAuthTokenModel } from './model';
 

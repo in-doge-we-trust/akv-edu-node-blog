@@ -1,4 +1,4 @@
-import type { UserRoleReadDtoType } from '@akv-edu-node-blog/core-lib';
+import type { UserRoleReadDtoType } from '@aenb/core-lib';
 
 import type { UserRoleModel } from './model';
 

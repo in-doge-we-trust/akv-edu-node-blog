@@ -1,5 +1,5 @@
 {
-  "name": "@akv-edu-node-blog/core-lib",
+  "name": "@aenb/core-lib",
   "description": "A set of core things shared between Akv Edu Node Blog apps",
   "version": "0.0.1",
   "author": {
@@ -18,7 +18,7 @@
     "lint:fix": "eslint --fix src/**"
   },
   "devDependencies": {
-    "@akv-edu-node-blog/prettier-config-shared": "workspace:^",
+    "@aenb/prettier-config-shared": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "eslint": "^8.31.0",

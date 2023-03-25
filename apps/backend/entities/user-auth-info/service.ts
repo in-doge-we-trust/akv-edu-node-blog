@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import type { Attributes, CreateOptions } from 'sequelize';
 
-import type { UserAuthInfoCreateDtoType } from '@akv-edu-node-blog/core-lib';
+import type { UserAuthInfoCreateDtoType } from '@aenb/core-lib';
 
 import { UserAuthInfoModel } from './model';
 

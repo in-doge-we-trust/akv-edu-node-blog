@@ -1,5 +1,5 @@
 {
-  "name": "@akv-edu-node-blog/backend",
+  "name": "@aenb/backend",
   "description": "Akv Edu Node Blog backend app",
   "author": {
     "name": "Bulat Murtazin @ InDogeWeTrust",
@@ -11,6 +11,7 @@
   },
   "main": "app/index.ts",
   "scripts": {
+    "type-check": "tsc --noEmit --project tsconfig.json",
     "dev": "NODE_ENV=development nodemon",
     "build": "node ./scripts/build.js",
     "migrator": "node ./scripts/migrator.js",
@@ -21,7 +22,7 @@
     "migrator:list-executed": "yarn migrator executed"
   },
   "dependencies": {
-    "@akv-edu-node-blog/core-lib": "workspace:^",
+    "@aenb/core-lib": "workspace:^",
     "bcrypt": "^5.1.0",
     "chalk": "4.1.2",
     "dotenv": "^16.0.3",
@@ -33,7 +34,7 @@
     "zod": "^3.20.2"
   },
   "devDependencies": {
-    "@akv-edu-node-blog/prettier-config-shared": "workspace:^",
+    "@aenb/prettier-config-shared": "workspace:^",
     "@types/bcrypt": "^5.0.0",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
