@@ -5,10 +5,7 @@ import {
   Sequelize,
 } from 'sequelize';
 
-import type {
-  UserModelType,
-  UserRoleModelType,
-} from '@akv-edu-node-blog/core-lib';
+import type { UserModelType, UserRoleModelType } from '@aenb/core-lib';
 
 import { Model } from '../shared/model';
 import { UserModel } from '../user/model';

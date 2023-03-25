@@ -6,7 +6,7 @@ import {
   Sequelize,
 } from 'sequelize';
 
-import type { UserAuthTokenType } from '@akv-edu-node-blog/core-lib';
+import type { UserAuthTokenType } from '@aenb/core-lib';
 
 import { idColumn } from '../shared/id-column';
 import { Model } from '../shared/model';

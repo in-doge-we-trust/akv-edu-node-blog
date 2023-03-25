@@ -1,4 +1,4 @@
-import type { PostReadDtoType } from '@akv-edu-node-blog/core-lib';
+import type { PostReadDtoType } from '@aenb/core-lib';
 
 import { UserSerializer } from '../user/serializer';
 import { UserService } from '../user/service';

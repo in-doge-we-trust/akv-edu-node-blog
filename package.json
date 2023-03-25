@@ -1,6 +1,7 @@
 {
   "name": "akv-edu-node-blog",
   "description": "Simple full-stack personal blog app created for educational purposes",
+  "private": true,
   "version": "0.0.1",
   "license": "MIT",
   "author": {

@@ -6,7 +6,7 @@ import {
   Sequelize,
 } from 'sequelize';
 
-import { UserRolesEnum, UserRoleModelType } from '@akv-edu-node-blog/core-lib';
+import { UserRolesEnum, UserRoleModelType } from '@aenb/core-lib';
 
 import { idColumn } from '../shared/id-column';
 import { Model } from '../shared/model';

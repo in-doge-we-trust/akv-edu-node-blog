@@ -1,5 +1,5 @@
 {
-  "name": "@akv-edu-node-blog/frontend",
+  "name": "@aenb/frontend",
   "version": "0.0.1",
   "description": "Akv Edu Node Blog frontend app",
   "author": {
@@ -20,13 +20,13 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@akv-edu-node-blog/core-lib": "workspace:^",
+    "@aenb/core-lib": "workspace:^",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
     "zod": "^3.20.2"
   },
   "devDependencies": {
-    "@akv-edu-node-blog/prettier-config-shared": "workspace:^",
+    "@aenb/prettier-config-shared": "workspace:^",
     "@types/node": "^18.11.12",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",

@@ -1,7 +1,4 @@
-import type {
-  UserCreateDtoType,
-  UserUpdateDtoType,
-} from '@akv-edu-node-blog/core-lib';
+import type { UserCreateDtoType, UserUpdateDtoType } from '@aenb/core-lib';
 
 import { sequelize } from '../../config/sequelize';
 import { UserAuthInfoService } from '../user-auth-info/service';

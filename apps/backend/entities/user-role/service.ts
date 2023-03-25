@@ -1,7 +1,7 @@
 import type {
   UserRoleCreateDtoType,
   UserRoleUpdateDtoType,
-} from '@akv-edu-node-blog/core-lib';
+} from '@aenb/core-lib';
 
 import { UserRoleModel } from './model';
 

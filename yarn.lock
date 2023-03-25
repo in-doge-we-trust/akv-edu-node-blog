@@ -5,12 +5,12 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@akv-edu-node-blog/backend@workspace:apps/backend":
+"@aenb/backend@workspace:apps/backend":
   version: 0.0.0-use.local
-  resolution: "@akv-edu-node-blog/backend@workspace:apps/backend"
+  resolution: "@aenb/backend@workspace:apps/backend"
   dependencies:
-    "@akv-edu-node-blog/core-lib": "workspace:^"
-    "@akv-edu-node-blog/prettier-config-shared": "workspace:^"
+    "@aenb/core-lib": "workspace:^"
+    "@aenb/prettier-config-shared": "workspace:^"
     "@types/bcrypt": ^5.0.0
     "@types/node": ^18.11.18
     "@typescript-eslint/eslint-plugin": ^5.47.1
@@ -35,30 +35,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akv-edu-node-blog/core-lib@workspace:^, @akv-edu-node-blog/core-lib@workspace:packages/core-lib":
+"@aenb/core-lib@workspace:^, @aenb/core-lib@workspace:packages/core-lib":
   version: 0.0.0-use.local
-  resolution: "@akv-edu-node-blog/core-lib@workspace:packages/core-lib"
+  resolution: "@aenb/core-lib@workspace:packages/core-lib"
   dependencies:
-    "@akv-edu-node-blog/prettier-config-shared": "workspace:^"
+    "@aenb/prettier-config-shared": "workspace:^"
     "@typescript-eslint/eslint-plugin": ^5.47.1
     "@typescript-eslint/parser": ^5.47.1
     eslint: ^8.31.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
     prettier: ^2.8.1
-    rimraf: ^4.1.1
     typescript: ^4.9.4
   peerDependencies:
     zod: ^3.20.2
   languageName: unknown
   linkType: soft
 
-"@akv-edu-node-blog/frontend@workspace:apps/frontend":
+"@aenb/frontend@workspace:apps/frontend":
   version: 0.0.0-use.local
-  resolution: "@akv-edu-node-blog/frontend@workspace:apps/frontend"
+  resolution: "@aenb/frontend@workspace:apps/frontend"
   dependencies:
-    "@akv-edu-node-blog/core-lib": "workspace:^"
-    "@akv-edu-node-blog/prettier-config-shared": "workspace:^"
+    "@aenb/core-lib": "workspace:^"
+    "@aenb/prettier-config-shared": "workspace:^"
     "@types/node": ^18.11.12
     "@typescript-eslint/eslint-plugin": ^5.47.1
     "@typescript-eslint/parser": ^5.47.1
@@ -82,9 +81,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akv-edu-node-blog/prettier-config-shared@workspace:^, @akv-edu-node-blog/prettier-config-shared@workspace:packages/prettier-config-shared":
+"@aenb/prettier-config-shared@workspace:^, @aenb/prettier-config-shared@workspace:packages/prettier-config-shared":
   version: 0.0.0-use.local
-  resolution: "@akv-edu-node-blog/prettier-config-shared@workspace:packages/prettier-config-shared"
+  resolution: "@aenb/prettier-config-shared@workspace:packages/prettier-config-shared"
   peerDependencies:
     prettier: ^2.8.1
   languageName: unknown
@@ -5431,15 +5430,6 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
-  languageName: node
-  linkType: hard
-
-"rimraf@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "rimraf@npm:4.1.1"
-  bin:
-    rimraf: dist/cjs/src/bin.js
-  checksum: f52d46f59c1a532b3d0f73cb5228ff8f7df4ee87b9df95cf655788ea186c935b5c6ab4c45b66f8de5ed1e3690f58ff83f9a5b0ba1ae2e76a9bf36415f37732f7
   languageName: node
   linkType: hard
 
