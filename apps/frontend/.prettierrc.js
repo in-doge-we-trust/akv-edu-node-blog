@@ -1,4 +1,4 @@
-const prettierConfigShared = require('@akv-edu-node-blog/prettier-config-shared');
+const prettierConfigShared = require('@aenb/prettier-config-shared');
 
 module.exports = {
   ...prettierConfigShared,
