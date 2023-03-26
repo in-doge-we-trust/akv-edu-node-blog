@@ -7,6 +7,7 @@ import {
 import {
   buildJsonApiCreateRequestObjectSchema,
   buildJsonApiCreateResponseObjectSchema,
+  buildJsonApiDeleteResponseObjectSchema,
   buildJsonApiReadResponseObjectSchema,
   buildJsonApiUpdateRequestObjectSchema,
   buildJsonApiUpdateResponseObjectSchema,
@@ -37,3 +38,6 @@ export const UserRoleUpdateRequestSchema =
 
 export const UserRoleUpdateResponseSchema =
   buildJsonApiUpdateResponseObjectSchema(resourceType, UserRoleReadSchema);
+
+export const UserRoleDeleteResponseSchema =
+  buildJsonApiDeleteResponseObjectSchema();

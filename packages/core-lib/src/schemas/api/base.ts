@@ -38,6 +38,38 @@ export function buildJsonApiReadResponseObjectSchema<
 >(
   resourceType: ResourceType,
   resourceAttributesSchema: ResourceAttributesSchema,
+  resourceObjectsCount: 'one',
+): z.ZodObject<{
+  data: ReturnType<
+    typeof buildJsonApiReadResourceObjectSchema<
+      ResourceType,
+      ResourceAttributesSchema
+    >
+  >;
+}>;
+export function buildJsonApiReadResponseObjectSchema<
+  ResourceType extends string,
+  ResourceAttributesSchema extends z.ZodObject<Record<string, z.ZodTypeAny>>,
+>(
+  resourceType: ResourceType,
+  resourceAttributesSchema: ResourceAttributesSchema,
+  resourceObjectsCount: 'many',
+): z.ZodObject<{
+  data: z.ZodArray<
+    ReturnType<
+      typeof buildJsonApiReadResourceObjectSchema<
+        ResourceType,
+        ResourceAttributesSchema
+      >
+    >
+  >;
+}>;
+export function buildJsonApiReadResponseObjectSchema<
+  ResourceType extends string,
+  ResourceAttributesSchema extends z.ZodObject<Record<string, z.ZodTypeAny>>,
+>(
+  resourceType: ResourceType,
+  resourceAttributesSchema: ResourceAttributesSchema,
   resourceObjectsCount: 'one' | 'many',
 ) {
   switch (resourceObjectsCount) {
