@@ -8,3 +8,5 @@ export * from './user-role';
 export * from './user';
 
 export * from './post';
+
+export * as ApiTypes from './api';

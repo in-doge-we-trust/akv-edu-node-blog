@@ -38,8 +38,10 @@ export const UserAuthInfoReadSchema = UserAuthInfoReadSchemaShape;
 export const UserAuthInfoUpdateTokenSchema = UserAuthInfoSchemaShape.pick({
   authToken: true,
 });
+export const UserAuthInfoUpdatePasswordSchemaShape =
+  WithUserPasswordWithOldWithConfirmationSchemaMixin;
 export const UserAuthInfoUpdatePasswordSchema =
-  WithUserPasswordWithOldWithConfirmationSchemaMixin.superRefine(
+  UserAuthInfoUpdatePasswordSchemaShape.superRefine(
     refineOldUserPasswordNotMatchUserPasswordAndConfirmationMatch,
   );
 export const UserAuthInfoUpdateSchema = UserAuthInfoUpdateTokenSchema.or(
